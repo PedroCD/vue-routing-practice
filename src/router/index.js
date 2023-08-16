@@ -12,13 +12,15 @@ const routes = [
         name: 'destination.show',
         component: () => import(/* webpackChunkName: "destinationShow" */"../views/DestinationShow.vue"),
         props: (route) => ({...route.params, id: parseInt(route.params.id)}),
+        children: [
+            {
+                path: ':experienceSlug',
+                name: 'experience.show',
+                component: () => import(/* webpackChunkName: "experienceShow" */"../views/ExperienceShow.vue"),
+                props: (route) => ({...route.params, id: parseInt(route.params.id)})
+            }
+        ]
     },
-    {
-        path: '/destination/:id/:slug/:experienceSlug',
-        name: 'experience.show',
-        component: () => import(/* webpackChunkName: "experienceShow" */"../views/ExperienceShow.vue"),
-        props: (route) => ({...route.params, id: parseInt(route.params.id)})
-    }
 ]
 
 const router = createRouter({
