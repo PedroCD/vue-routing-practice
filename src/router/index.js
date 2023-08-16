@@ -26,12 +26,17 @@ const routes = [
         path: '/panama',
         name: 'Panama',
         component: () => import(/* webpackChunkName: "panama" */"../views/Panama.vue")
+    },
+    {
+        path: '/destination/:id',
+        name: 'destination.show',
+        component: () => import(/* webpackChunkName: "destinationShow" */"../views/DestinationShow.vue")
     }
 ]
 
 const router = createRouter({
     history: createWebHistory(),
-    routes
+    routes,
 })
 
 export default router;
